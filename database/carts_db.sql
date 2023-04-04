@@ -65,7 +65,7 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `user_id`, `name`, `email`, `number`, `message`) VALUES
-(14, 18, 'Ashish Sawant', 'assawant@gmail.com', '8530745681', 'fantastic');
+(14, 18, 'Ashish Sawant', 'assawant@gmail.com', '1234567890', 'fantastic');
 
 -- --------------------------------------------------------
 
