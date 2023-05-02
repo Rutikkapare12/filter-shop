@@ -348,7 +348,7 @@ section{
 
 .home{
    min-height: 90vh;
-   background:url(../files/back.jpg) no-repeat;
+   background:url(../files/B2.jpg) no-repeat;
    background-size: cover;
    background-position: center;
    display: flex;
@@ -362,16 +362,16 @@ section{
 
 .home .content h3{
    text-transform: uppercase;
-   color:var(--white);
-   font-size: 5.5rem;
+   color:#3f45c3;
+   font-size: 6.5rem;
 }
 
 .home .content p{
    max-width: 60rem;
    margin:1rem auto;
    line-height:2;
-   font-size: 1.7rem;
-   color:var(--white);
+   font-size: 2.2rem;
+   color:#5436c1;
 }
 
 .about2 {
@@ -1173,69 +1173,32 @@ section{
 
 }
 
-.center{
+
+.loader-container {
    position: fixed;
    top: 0;
    left: 0;
    height: 100%;
    width: 100%;
    z-index: 10000;
-   background: #000;
    background: #fff;
-   overflow: hidden;
    display: flex;
-   text-align: center;
-   justify-content: center;
    align-items: center;
+   justify-content: center;
+   overflow: hidden;
  }
- .center.fade-out{
+ 
+ .loader-container img {
+   width: 35rem;
+ }
+ 
+ .loader-container.fade-out {
    top: -110%;
    opacity: 0;
  }
- .center .ring{
-   position: absolute;
-   width: 200px;
-   height: 200px;
-   border-radius: 50%;
-   animation: ring 2s linear infinite;
- }
- @keyframes ring {
-   0%{
-     transform: rotate(0deg);
-     box-shadow: 1px 5px 2px #e65c00;
-   }
-   50%{
-     transform: rotate(180deg);
-     box-shadow: 1px 5px 2px #18b201;
-   }
-   100%{
-     transform: rotate(360deg);
-     box-shadow: 1px 5px 2px #0456c8;
-   }
- }
- .center .ring:before{
-   position: absolute;
-   content: '';
-   left: 0;
-   top: 0;
-   height: 100%;
-   width: 100%;
-   border-radius: 50%;
-   box-shadow: 0 0 5px rgba(255,255,255,.3);
- }
- .center span{
-   color: #737373;
-   font-size: 20px;
-   text-transform: uppercase;
-   letter-spacing: 1px;
-   line-height: 200px;
-   animation: text 3s ease-in-out infinite;
- }
- @keyframes text {
-   50%{
-     color: black;
-   }
- }
+
+
+
 @media (max-width:450px){
 
    html{
@@ -1251,3 +1214,4 @@ section{
    }
 
 }
+

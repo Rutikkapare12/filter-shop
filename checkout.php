@@ -10,6 +10,8 @@ if(!isset($user_id)){
    header('location:login.php');
 }; 
 
+$order_id = rand(11111,99999);
+
 if(isset($_POST['order'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -40,9 +42,13 @@ if(isset($_POST['order'])){
     }elseif(mysqli_num_rows($order_query) > 0){
         $message[] = 'order placed already!';
     }else{
-        mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
+        mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on, order_id) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on', '$order_id')") or die('query failed');
         mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
         $message[] = 'order placed successfully!';
+        $_SESSION['order_id'] = $order_id;
+        if($_POST['method'] != 'cash on delivery'){
+            header("location:QR_page.php");
+        }
     }
 }
 
@@ -114,9 +120,8 @@ if(isset($_POST['order'])){
                 <span>payment method :</span>
                 <select name="method">
                     <option value="cash on delivery">cash on delivery</option>
-                    <option value="credit card">credit card</option>
-                    <option value="paypal">paypal</option>
                     <option value="paytm">paytm</option>
+                    <option value="google pay">google pay</option>
                 </select>
             </div>
             <div class="inputBox">

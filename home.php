@@ -146,9 +146,9 @@ if(isset($_POST['add_to_cart'])){
 
 <?php @include 'footer.php'; ?>
 
-<div class="center">
-         <div class="ring"></div>
-         <span>loading...</span>
+<div class="loader-container">
+   <img src="images/loader.gif" alt="">        
+
 </div>
 
 <script src="js/script.js"></script>
